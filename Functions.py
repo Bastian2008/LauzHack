@@ -62,7 +62,7 @@ def choose(L, L_L):
         s = 0
         for k in range(T):
             s += abs(L[k] - L_L[i][k])
-        if (s < var):
+        if s < var:
             closest = i
     return i + 1
 
@@ -71,3 +71,5 @@ def calculate_Q():
     url = urllib.request.urlopen("http://lauzhack.sqpub.ch/teams")
     data = json.loads(url.read().decode())
     return data[4]["XBT"], data[4]["cash"]
+
+

@@ -44,8 +44,6 @@ for chunk in r.iter_content(chunk_size=1024):
     text = chunk.decode("utf-8")
     m = re.search('Z (.+?)\n', text)
     val = float(m.group(1))
-    print(Buy)
-    print(i)
     L.append(val)
     if i == Buy:
         Functions.buyBitcoin(Q)
@@ -54,7 +52,8 @@ for chunk in r.iter_content(chunk_size=1024):
     if i == Sell:
         Functions.sellBitcoin(Q)
         XBT, cash = Functions.calculate_Q()
-        Q = (cash / 10) / val
+        print(XBT)
+        Q = (XBT / 10)
     i = i + 1
     if L.__len__() == T:
         k = []
