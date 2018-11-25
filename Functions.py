@@ -54,17 +54,26 @@ def streamData():
         print(val)
 
 
+def popLowest(L_L,A):
+    i = A.index(min(A))
+    print(i)
+    L_L.pop(2*i)
+    L_L.pop(2*i)
+    A.pop(i)
+    A.append(0)
+
 def choose(L, L_L):
     var = float("inf")
     closest = 0
     i=0
-    for i in range(len(L_L)-1):
+    for i in range(int(len(L_L)/2)):
         s = 0
         for k in range(T):
-            s += abs(L[k] - L_L[i][k])
-        if s < var:
+            s += abs(L[k] - L_L[2*i][k])
+        if (s < var):
             closest = i
-    return i + 1
+            var = s
+    return 2*i + 1
 
 
 def calculate_Q():
