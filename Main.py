@@ -53,7 +53,7 @@ for chunk in r.iter_content(chunk_size=1024):
     print(A[int(lowIndex/2)])
     L.append(val)
     if i == Buy:
-        Functions.buyBitcoin(min(QBuy*(1+4*A[int(lowIndex/2)]),XBT))
+        Functions.buyBitcoin(min(QBuy*(1+4*A[int(lowIndex/2)]),cash/val))
         print(A[int(lowIndex/2)])
         oldTotal = cash + XBT*val
         XBT, cash = Functions.calculate_Q()
@@ -62,7 +62,7 @@ for chunk in r.iter_content(chunk_size=1024):
         print(total)
         QBuy = (cash / 10) / val
     if i == Sell:
-        Functions.sellBitcoin(max(QSell*(1+4*A[int(lowIndex/2)]),cash/val))
+        Functions.sellBitcoin(min(QSell*(1+4*A[int(lowIndex/2)]),XBT))
         print(A[int(lowIndex/2)])
         oldTotal = cash + XBT*val
         XBT, cash = Functions.calculate_Q()
